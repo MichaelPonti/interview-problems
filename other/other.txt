@@ -1,0 +1,29 @@
+function createHandler(value) {
+	return function() {
+		alert(`this is ${value}`);
+	};
+}
+
+var elements = document.getElementsByTagName("button");
+var n = elements.length;
+for (var i = 0; i < n; i++) {
+	elements[i].onclick = createHandler(i + 1);
+}
+
+
+
+
+
+
+clearStorageOlderBrowsers: function() {
+	const self = this;
+	setTimeout(function() {
+		console.log("clearStorage");
+		self.clearSchedule();
+	}, 0);
+}
+
+
+clearStorageNewJs: function() {
+	setTimeout(this.clearSchedule.bind(this), 0);
+}
