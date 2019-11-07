@@ -27,3 +27,13 @@ clearStorageOlderBrowsers: function() {
 clearStorageNewJs: function() {
 	setTimeout(this.clearSchedule.bind(this), 0);
 }
+
+// justins closure
+clearStorageClosure: function(v) {
+	return () => v.clearSchedule();
+}
+
+clearStorageWithClosure: function() {
+	const f = this.clearStorageClosure(this);
+	setTimeout(f, 500);
+}
